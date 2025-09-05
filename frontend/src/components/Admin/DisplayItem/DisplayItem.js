@@ -67,7 +67,10 @@ function DisplayItem() {
     <div className="container mt-4">
       <h2 className="text-center mb-4">Inventory Items</h2>
 
-      <div className="d-flex justify-content-between mb-3">
+      <div
+        className="d-flex justify-content-between mb-3"
+        style={{ gap: "10px" }}
+      >
         <input
           type="text"
           className="form-control w-50"
@@ -76,12 +79,23 @@ function DisplayItem() {
           onChange={(e) => setSearchQuery(e.target.value)}
         />
 
-        <button
-          className="btn btn-danger"
-          onClick={() => genaratePdf(inventory)}
-        >
-          Generate PDF
-        </button>
+        <div className="d-flex" style={{ gap: "10px" }}>
+          <button
+            className="btn btn-danger"
+            style={{ minWidth: "120px" }}
+            onClick={() => (window.location.href = "/additem")}
+          >
+            Add Items
+          </button>
+
+          <button
+            className="btn btn-danger"
+            style={{ minWidth: "120px" }}
+            onClick={() => genaratePdf(inventory)}
+          >
+            Generate PDF
+          </button>
+        </div>
       </div>
 
       <table className="table table-bordered table-hover text-center align-middle shadow-sm">
@@ -118,13 +132,13 @@ function DisplayItem() {
                   className="btn btn-warning btn-sm me-2"
                   onClick={() => updateNavigate(item.id)}
                 >
-                   Update
+                  Update
                 </button>
                 <button
                   className="btn btn-danger btn-sm"
                   onClick={() => deleteItem(item.id)}
                 >
-                   Delete
+                  Delete
                 </button>
               </td>
             </tr>

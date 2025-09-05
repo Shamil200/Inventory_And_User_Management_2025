@@ -79,5 +79,11 @@ public class UserController {
         return "User account " + id + " deleted";
     }
 
+    // check Email
+    @GetMapping("/checkEmail")
+    public boolean checkEmailExists(@RequestParam String email){
+        return userRepository.existsByEmail(email);
+    }
+
 
 }
